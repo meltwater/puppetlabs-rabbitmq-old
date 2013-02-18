@@ -1,7 +1,7 @@
 class rabbitmq::repo::rhel (
     $key = "http://www.rabbitmq.com/rabbitmq-signing-key-public.asc",
     $version = "2.8.4",
-    $relversion = "1",
+    $relversion = "1"
 ) { 
     exec { "rpm --import ${key}":
         path => ["/bin","/usr/bin","/sbin","/usr/sbin"],
