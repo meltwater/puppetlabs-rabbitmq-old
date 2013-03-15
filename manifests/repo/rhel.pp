@@ -5,6 +5,8 @@ class rabbitmq::repo::rhel (
 ) { 
     exec { "rpm --import ${key}":
         path => ["/bin","/usr/bin","/sbin","/usr/sbin"],
+        retries => 3,
+        sleep   => 15,
     }
 
     package { "rabbitmq-server":
