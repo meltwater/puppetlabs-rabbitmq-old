@@ -5,6 +5,7 @@ class rabbitmq::repo::rhel (
 ) { 
     exec { "rpm --import ${key}":
         path => ["/bin","/usr/bin","/sbin","/usr/sbin"],
+        unless => "rpm -qi $(rpm -qa gpg-pubkey* | sort | uniq) | grep -q 'RabbitMQ Release Signing Key'",
     }
 
     package { "rabbitmq-server":
