@@ -1,6 +1,6 @@
 Puppet::Type.type(:rabbitmq_plugin).provide(:rabbitmqplugins) do
 
-  commands :rabbitmqplugins => 'HOME="/root" /usr/sbin/rabbitmq-plugins'
+  commands :rabbitmqplugins => 'rabbitmq-plugins'
   defaultfor :feature => :posix
 
   def self.instances
